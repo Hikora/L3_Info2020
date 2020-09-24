@@ -1,0 +1,77 @@
+table td
+{
+	padding-bottom:10px;
+}
+a
+{
+	text-decoration: none;
+	color:rgba(190,180,0,0.8);
+	font-size: 17.5px;	
+	
+}
+a:hover
+{
+	text-decoration: underline;
+	color:rgb(165,165,0);
+}
+
+.valide
+ {
+ 	float:right;
+ 	background-color: rgb(150,150,150);
+	border:2px ridge rgb(100,100,100);
+ 	border-radius:3px;
+	color:rgb(100,100,100);
+	min-width: 120px;
+
+ }
+.case3
+{
+	min-width: 406px;
+	height:25px;
+	background-color: rgba(30,30,30,0.8);
+	border:2px ridge rgb(100,100,100);
+ 	border-radius:3px;
+	color:grey;
+
+}
+.case2
+{
+	min-width:175px;
+	height:25px;
+    background-color: rgba(30,30,30,0.8);
+    border:2px ridge rgb(100,100,100);
+ 	border-radius:3px;
+	color:grey;
+}
+.case
+ {
+ 	min-width: 400px;
+ 	height:25px;
+ 	background-color: rgba(30,30,30,0.8);
+ 	border:2px ridge rgb(100,100,100);
+ 	border-radius:3px;
+ 	color:grey;
+ }
+ body
+ {
+
+ 	background-image:url(doge.jpg);
+ 	background-position:3% 45%;
+ }
+ h2
+   {
+   	color: grey
+   }
+ label
+ {
+ 	font-size: 17px;
+ 	color:grey;
+ }
+ .valide:hover
+ {
+ 	
+ 	background-color: rgba(120,120,120,0.8);
+ 	font-size:15px;
+
+ }

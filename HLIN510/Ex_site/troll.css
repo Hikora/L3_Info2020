@@ -1,0 +1,20 @@
+.gif
+{
+
+  position: fixed; right: 0; bottom: 0;
+	  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+background: url(troll.gif) repeat;
+ 
+}
+.lol
+{
+	display:block; 
+	width:480px;
+	margin:auto ;
+	position:fixed;
+	top:25%;
+	bottom:25%;
+	left:17%;
+	right:17%;
+}

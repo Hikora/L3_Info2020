@@ -1,0 +1,96 @@
+#profil_bar
+{   
+
+    
+	display: none;
+
+    
+	
+}
+#profil_bar ul
+{
+	max-height: 481px;
+	 list-style:none;
+	border-bottom:1.5px solid grey;
+	
+	display: none;
+flex-direction: column;
+    position:fixed;
+    top:120px;
+	background-color:rgb(200,200,200);
+	z-index:50;
+	width:200px;
+	border-radius: 15px;
+	border:1.5px solid grey ;
+	text-align: center;
+	padding:35px;
+	overflow: auto;
+
+}
+#profil_bar h3
+{
+	font-size: 17px;
+}
+
+#profil_bar li
+ {
+ 	display:none;
+ 	
+ }
+ #profil_bar img
+ {
+ 	border-radius: 20px;		
+ }
+
+#profil_bar:target{display:flex;}
+#profil_bar:target  ul{display:flex;}
+#profil_bar:target  li{display: inline;}
+#hide:target ul{display:none;}
+#hide:target li{display:none;}
+#hide:target {display:none;}
+
+/*#profil_bar:target .photo_profil {display:none;}*/
+.titre_profil
+ {
+
+ 	font-size:22px;
+ 	font-weight: bold;
+ }
+.hiding:hover
+{
+	background-color:rgba(80,80,80,0.15);
+	border-radius: 10px;
+	text-decoration: underline;
+}
+.hiding:hover .hide_arrow
+{
+	display:inline;
+}
+
+.hiding:hover .arrow_w
+{
+	display:none;
+}
+.hide_arrow
+ {
+ 	display:none;
+ }
+ .hiding 
+  {
+  	text-decoration: none;
+  }
+
+  .photo_profil:hover img
+   {
+   	border-radius: 60px;
+   box-shadow:2px 2px 2px 2px  rgba(50,50,50,0.4);
+
+   }
+   .lien_photoP:hover
+   {
+
+   box-shadow:2px 2px 2px 2px  rgba(50,50,50,0.4);
+
+
+   }
+   }

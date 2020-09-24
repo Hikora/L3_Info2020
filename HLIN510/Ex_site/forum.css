@@ -1,0 +1,14 @@
+
+.video_fond2
+
+{
+	position: fixed;
+	left:0;
+    top:0;
+    margin:0;
+    padding:0;
+    width:100%;
+    z-index:-200;
+}
+
+

@@ -1,0 +1,280 @@
+
+.image_flottante
+ {
+ 	
+ 	position:relative;
+ 	top:0;
+ 	left:0;
+ }
+a,strong,h3
+{
+
+	text-decoration: none;
+	font-style: none;
+	font-style: normal;
+	
+	
+}
+.barre a
+{
+	color:blue;
+
+}
+.barre a:hover
+{
+	text-decoration: underline;
+}
+
+body
+{
+	margin:50px;
+	margin-top:20px;
+	margin-left:20px;
+}
+
+}
+aside
+{
+	display:inline;
+}
+.sous-titre1 ,.sous-titre2,.sous-titre3
+{
+	list-style: none;
+}
+#information img
+{
+    
+	border:3px ridge grey;
+
+
+}
+#information
+{
+float:right;
+text-align: center;
+  
+}
+#introduction
+{
+	max-width:1000px;
+	min-height:300px;
+	padding:30px;
+}
+#introduction p
+{
+  text-align:center;
+	text-align:justify;
+}
+#corps
+{
+	text-align: justify;
+
+}
+
+.sommaire em
+{
+	text-decoration: none;
+	font-size:20px;
+
+}
+.art
+{
+  list-style-image:url("play-grey.png");
+
+}
+.sommaire
+{
+	background-color:rgb(235,235,235);
+	list-style: square;
+	border:2px solid black;
+	display: inline-block;
+	padding:30px;
+
+}
+.sommaire em
+{
+	color:black;
+	font-weight: bold;
+
+}
+.sommaire h3
+{
+	color:black;
+	font-weight: normal;
+
+}
+.sommaire em:hover
+{
+
+	text-decoration: underline;
+	color:grey;
+}
+
+.tableur
+{
+	background-color:rgb(180,200,240,0.6);
+	border: 2px solid black;
+    border-collapse: collapse;
+    width:300px;
+    z-index:-1;
+
+}
+.tableur tr > td
+{
+	min-width:150px;
+	text-align:center;
+	padding:10px;
+	border: 1px solid black;
+    border-collapse: collapse;
+	
+}
+.sous-titre a:hover
+{
+	text-decoration: underline;
+}
+
+
+h4
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.ferme
+{
+	display:none;
+}
+@media screen and (max-width:1300px)
+{
+
+.pg,.ferme
+{
+	display:none;
+}
+
+#ferme1:target .sous-titre1{display:none;}
+#ferme2:target .sous-titre2{display:none;}
+#ferme3:target .sous-titre3{display:none;}
+
+#ferme11:target .pg11{display:none;}
+#ferme12:target .pg12{display:none;}
+#ferme13:target .pg13{display:none;}
+#ferme21:target .pg21{display:none;}
+#ferme22:target .pg22{display:none;}
+#ferme23:target .pg23{display:none;}
+#ferme31:target .pg31{display:none;}
+#ferme32:target .pg32{display:none;}
+#ferme33:target .pg33{display:none;}
+
+#Compétences:target .sous-titre1 li{display:block;}
+#Compétences:target .ferme1{display:block;}
+#Parcour:target .sous-titre2 li{display:block;}
+#Parcour:target .ferme2{display:block;}
+#Futur:target .sous-titre3 li{display:block;}
+#Futur:target .ferme3{display:block;}
+
+#A11:target {display:block;}
+#A11:target .ferme11{display:block;}
+#A12:target {display:block;}
+#A12:target .ferme12{display:block;}
+#A13:target {display:block;}
+#A13:target .ferme13{display:block;}
+#B21:target {display:block;}
+#B21:target .ferme21{display:block;}
+#B22:target {display:block;}
+#B22:target .ferme22{display:block;}
+#B23:target {display:block;}
+#B23:target .ferme23{display:block;}
+#C31:target {display:block;}
+#C31:target .ferme31{display:block;}
+#C32:target {display:block;}
+#C32:target .ferme32{display:block;}
+#C33:target {display:block;}
+#C33:target .ferme33{display:block;}
+
+
+}
+@media screen and (max-width:1000px)
+{
+  #information
+  {
+  	display:flex;
+  	flex-direction: row;
+  	float:none;
+  	justify-content: center;
+  	
+  }
+  #information picture
+  {
+  	float:left;
+  	padding-right: 20px;
+  }
+  #information .tableur 
+  {
+  	text-align: center;
+  	min-width:445px;
+
+  }
+  #information .tableur tr>td
+  {
+  	min-width:200px;
+  }
+  #introduction
+  {
+  	clear:both;
+  }
+
+}
+@media screen and (max-width:740px)
+{
+#information .tableur
+  {
+  	position:absolute;
+  	top:950px;
+  	left:200px;
+
+  }
+  #information .tableur tr>td
+  {
+  	min-width:0px;
+  	padding:0;
+  	padding-top:10px; 
+  	padding-bottom:10px;
+  }
+}
+
+.obligé1 h4,.obligé2 h4,.obligé3 h4
+{
+	display:none;
+}
+
+.question1:required .obligé1
+{
+  display:inline;
+  color:grey;
+}
+
+.question2:required .obligé2
+{
+  display:inline;
+  color:grey;
+}
+.question3:required .obligé3
+{
+  display:inline;
+  color:grey;
+}
+
+
+
+/*
+.gif
+{
+	
+   position:relative;
+   text-align:center;
+   margin-top: 180px;
+    z-index:200;
+}
+
+*/

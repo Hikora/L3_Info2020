@@ -1,0 +1,59 @@
+
+
+
+
+html,
+body{
+    height: 100%;
+}
+body
+{ 
+
+   background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("fond_risitas.jpg");
+	z-index: -1000;
+}
+#cv ul
+{
+  position:relative;
+  top:250px;
+ display:flex;
+ justify-content:space-between;
+ 
+
+}
+.liste_cv 
+{
+	margin-left:20px;
+    margin-right: 20px;
+	list-style: none;
+}
+.liste_cv figcaption
+{
+  
+  text-decoration:none;
+  text-align: center;
+  color:white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+a
+{
+   text-decoration: none;
+  
+}
+@media screen and (max-width:1620px) and (max-height:1080px)
+{
+body
+{ 
+ 
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-image: url("fond_risitas2.jpg");
+  z-index: -1000;
+}
+}
+

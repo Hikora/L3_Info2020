@@ -1,0 +1,169 @@
+
+#container2
+{
+	display: inline-flex;
+
+    margin-top:120px;
+    margin-right:auto; 
+    margin-left:auto;
+    justify-content: center;      
+	
+    position: relative;
+    bottom:0;
+    width:97.5%;
+   
+
+	border-radius: 20px;
+    border:3px ridge grey;
+
+    background-color:rgba(165,165,290,0.9);
+	
+    overflow: hidden;
+    padding:15px;
+
+
+	/*justify-content: center*/
+   
+   
+}
+.bas
+{
+display:inline-flex;
+flex-direction:row;
+list-style: none; 
+
+}
+
+.contact 
+{
+	display: flex;
+ flex-direction: column;
+ list-style-image:url("play-white.png");
+
+ /* width:30%; */
+}
+.lien_contact a
+{
+	text-decoration:none;
+	color:white;
+   font-family: Arial,Verdana,"Arial Black",Georgia,"Comic Sans MS";
+   font-size:17px;
+
+}
+.lien_contact:hover
+{
+	
+ 	list-style-image:url("play-grey.png");
+}
+.lien_contact a:hover
+{
+	text-decoration:underline;
+	color:grey;
+
+}
+.reseau
+{
+    list-style: none;
+    display:inline-flex;
+	flex-direction:row;
+	max-width:350px;
+	vertical-align: middle;
+
+}
+.suivre
+{
+	padding:15px;
+	padding-top: 25px;
+
+	
+}
+.reseau img:hover 
+{
+  opacity:0.4;
+  border:2.1px ridge rgb(50,50,50);
+  /*box-shadow:; */
+  border-radius:40px;
+}
+
+.trophée
+{
+	background:no-repeat center url("risicoin3.png")rgba(100,100,100,0.5);
+	text-align: center;
+}
+.trophée p
+{
+   color:black;
+   font-family: Arial,Verdana,"Arial Black",Georgia,"Comic Sans MS";
+   font-size:18px;
+   font-weight: bold;
+  }
+
+.trophée h3 , .contact h3 , .reseau h3	
+{
+   text-decoration:underline;
+    font-family:Arial,"Arial Black",Georgia,"Comic Sans MS";
+	color:white;
+	font-size:18px;
+	
+}
+@media screen and (max-width:1000px)
+{
+  #container2
+{
+  display:flex;
+  background-color:rgba(165,165,290,0.9);
+  margin:5px;
+  
+  
+}
+
+#container2 .bas
+{
+  
+  flex-direction: column;
+  padding-bottom:30px;
+}
+
+.contact  , .reseau  
+{
+  text-align: center;
+    margin: auto;
+  padding: 30px;
+  max-width:100%;
+  min-width:90%;
+
+}
+#container2 .reseau
+{
+
+   justify-content:space-between;
+}
+.contact 
+{   
+  display: flex;
+  flex-direction: row;
+  list-style: inside;
+  font-size: 20px;
+  border-bottom:1px;
+  border-bottom-style: solid;
+  border-bottom-color: grey; 
+
+}
+
+.trophée
+{
+  max-width:98%;
+  margin: auto;
+  margin-right:35px;
+  border-radius:5px;
+
+}
+.contact 
+{
+  display: flex;
+ flex-direction: column;
+ list-style-image:url("play-white.png");
+
+ /* width:30%; */
+}
+}

@@ -1,0 +1,37 @@
+#chat
+{
+	position:absolute;
+	right:1px;
+	border:1.5px ridge rgba(30,30,30,0.7);
+	margin-top:70px;
+	overflow-y:auto;
+	overflow-x:none;
+	height:600px;
+	width:310px;
+	opacity:0.85;
+	background-image:linear-gradient(rgba(180,180,180, 0.1), rgba(110,110,110, 0.1)),url("chat_bckg.jpg");
+	margin-right: 10px;
+	padding-bottom: 10px;
+	border-radius: 5px;
+	
+}
+.chat_textarea
+{
+margin-top: 15px;
+}
+.chat_input
+{
+	margin-top:5px;
+
+}
+.t_chat
+{
+ background-image: linear-gradient(rgba(100, 100, 205, 1), rgba(205, 205, 100, 1));
+ position:relative;
+ left:10px;
+ border-radius: 5px;
+ border:2px groove black;
+ max-width: 250px;
+ padding: 8px;
+
+}
