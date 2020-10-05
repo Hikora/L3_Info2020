@@ -1,0 +1,109 @@
+<!-- client à lancer via le protocole file :
+file:///home/p00000010501/public_html/Archiweb/TP6nodejsWebsocket/client.html
+ -->
+<html>
+  <head>
+    <meta charset="UTF-8" /> 
+    <title> Client web socket </title>
+    <style type="text/css"> td {padding: 20px; } </style>
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+    <!-- Attention la localisation a changé (dist) ! -->
+    <script src="d3.min.js"></script>
+    <script type="text/javascript" src="hexagones.js"></script>
+    <script>
+      var socket;
+      var nbJoueursConnectes = 0;
+      var nomsJoueurs = [];
+      var joueurLocal = -1;      // indice dans nomsJoueurs
+      var couleursJoueurs = ['red', 'yellow', 'blue', 'green'];
+      
+      function rejoindrePartie() {
+      if (joueurLocal == -1) {
+        nomJoueur = document.getElementsByName('joueur')[0].value;
+        if (nbJoueursConnectes < 4) {
+	  if (nomJoueur != "") {
+            console.log("Envoi de la connexion");
+            socket.emit("rejoindre", { "nomJoueur": nomJoueur });
+            joueurLocal = nbJoueursConnectes;
+	    document.getElementById("numJoueur").innerHTML=joueurLocal+1;
+          }
+        }            
+        else {
+          console.log("Vous ne pouvez pas pour l'instant rejoindre le groupe !");
+        }
+      }
+    }
+
+    function quitterPartie() {
+      if (joueurLocal > -1) {
+        console.log("Suppression du joueur n."+joueurLocal);
+        socket.emit("quitter", { "numJoueur": joueurLocal} );
+      }
+    }
+
+    socket = io('http://localhost:8888');
+    socket.emit("etat",{});  // Pour que le serveur renvoie les noms des joueurs déjà connectés
+
+        socket.on("etat", function(data) {
+	    console.log("Dans la réception d'état");
+            for (var m in data) {
+                console.log(m+" : "+data[m]);
+                window[m] = data[m];  // MAGIQUE : création des var globales
+                for (var i=0; i < nomsJoueurs.length; i++) {
+                    console.log("joueur ="+nomsJoueurs[i]);
+                    document.getElementById("joueur"+i).innerHTML = nomsJoueurs[i];
+		    // écriture dans les labels
+                }
+            }
+        });
+
+        socket.on("nouveauJoueur", function(data) {
+                  console.log("Du serveur : nouveau joueur");
+                  nomsJoueurs.push(data["nomJoueur"]);
+                  document.getElementById("joueur"+nbJoueursConnectes).innerHTML = data["nomJoueur"];   
+                  nbJoueursConnectes++;
+        });
+
+	socket.on("ancienJoueur", function(data) {
+		  var numJoueur = data['numJoueur'];
+		  var ancienJoueur = nomsJoueurs[numJoueur];
+                  console.log("Du serveur ancienJoueur = "+ancienJoueur+" (joueur n."+numJoueur+")");
+	    if (joueurLocal == numJoueur){
+		joueurLocal = -1;
+		document.getElementById("numJoueur").innerHTML="";
+	    }
+		  else if (joueurLocal > 0)     joueurLocal--;
+		  console.log("JoueurLocal = "+joueurLocal);	 
+                  nomsJoueurs.splice(numJoueur, 1);
+                  nbJoueursConnectes--;
+                  for (var i=numJoueur; i < nbJoueursConnectes; i++)
+                      document.getElementById("joueur"+i).innerHTML = nomsJoueurs[i];
+                  document.getElementById("joueur"+i).innerHTML = "";                  
+        });
+
+        socket.on("deplacement", function(data) {
+                  var numJoueur = data["numJoueur"];
+                  var idCase = data["idCase"];
+                  console.log("Affichage de la couleur "+couleursJoueurs[numJoueur]+" sur |"+idCase+"|");
+                  document.getElementById(idCase).setAttribute("fill", couleursJoueurs[numJoueur]);
+        });
+
+     </script>
+  </head>
+  <body onLoad="genereDamier(40,10,10)">
+     <div>
+    Rejoindre la partie <input type="text" name="joueur"> </input> <button onClick="rejoindrePartie()"> Rejoindre </button><label id="numJoueur"></label>
+        <br/>
+        Quitter les vivants <button onClick="quitterPartie()"> Bye Bye </button><br/><br/>
+        <table>
+        <td> Joueur 1 : <label id="joueur0"> </label> </td>
+        <td> Joueur 2 : <label id="joueur1"> </label> </td>
+        <td> Joueur 3 : <label id="joueur2"> </label> </td>
+        <td> Joueur 4 : <label id="joueur3"> </label> </td>
+        </table>
+        <br/>
+      </div>
+      <div id="damier">
+      </div>
+  </body>
+</html>

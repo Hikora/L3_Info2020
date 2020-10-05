@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" /> 
+<title>Site de jeu : Mastermind</title>
+</head>
+<body>
+<h1 align="center">Mastermind</h1>
+<form method="post"> 
+<p>Veuillez saisir successivement des combinaisons de
+
+4 chiffres jusqu'à la victoire !
+</p>
+<table>
+ <tr>
+  <th align="left" valign="middle">Num&eacute;ro</th>
+  <th align="left" valign="middle">Proposition</th>
+  <th align="left" valign="middle">Bien plac&eacute;(s)</th>
+  <th align="left" valign="middle">Mal plac&eacute;(s)</th>
+ </tr>
+<tr><td>1</td><td><input type='text' name='prop' autofocus size='4'</td><td></td><td></td></tr>
+    </table>
+    <input type="submit" value="OK">
+    <input type="submit" name="nouveau" value="Nouvelle Partie">
+   </form>
+  </body>
+</html>

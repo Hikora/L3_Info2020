@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" /> 
+  <title>Essai D3.js</title>
+  <script src="https://d3js.org/d3.v4.min.js">  </script>
+  <script src="../getParam.js"></script>
+  <style type="text/css">
+    html, body { height: 100%; margin: 0; padding: 0; }
+    #damier { height: 100%; }
+  </style>
+  <script>
+
+function creeHexagone(rayon) {
+  var points = new Array();
+  for (var i = 0; i < 6; i++) {
+    var angle = Math.PI/3*i;
+    var x = Math.cos(angle) * rayon;
+    var y = Math.sin(angle) * rayon;
+    points.push({"x" : x, "y" : y} );
+  } 
+  return points;
+}
+function genereDamier(rayon, nbLignes, nbColonnes) {
+  var hexagone = creeHexagone(rayon);
+  //console.log(hexagone);    
+  var decalH; // décalage horizontal à appliquer avant de dessiner l'hexagone
+  var decalV; // décalage vertical à appliquer avant de dessiner l'hexagone
+  var hauteur=rayon*Math.sin(Math.PI/3); // hauteur (1/2) de décalage de chaque ligne
+  var decalImpair=rayon*(1+Math.sin(Math.PI/6))+rayon;
+  for (var ligne=0; ligne < nbLignes; ligne++) {
+    for (var colonne=0; colonne < nbColonnes; colonne++) {
+      var d = "";      
+      decalV=hauteur*(ligne+1); // constant
+      if (ligne % 2===0 && colonne %2===0 ){ // pour les lignes paires, que les colonnes paires
+        decalH=rayon+colonne/2*(3*rayon);
+      } else if (ligne % 2===1 && colonne %2===1 ){ // impair impair
+        decalH=decalImpair + Math.trunc(colonne/2) * (3*rayon); // colonne impaire à tronquer
+      } else
+        continue;
+      //var x, y;
+      var premier=true; // DESSINER l'hexagone avec un path SVG
+      hexagone.forEach(function(h){ //for (var h in hexagone) NE FONCTIONNE PAS
+        //console.log(h);
+        if (premier){ // premier point
+          d=d+"M"+(h["x"]+decalH).toString()+","+(h["y"]+decalV).toString()+" L";
+          premier=false
+        }else{
+          d=d+(h["x"]+decalH).toString()+","+(h["y"]+decalV).toString()+" "
+        }
+      });
+      d += "Z";
+      //console.log(d);
+      svg.append("path").attr("d",d).attr("style","fill:white; stroke:black;width:100%;height:100%").on("click", function() {
+	  d3.select(this).attr("style","fill:yellow; stroke:blue;width:100%;height:100%;").attr("stroke-width","2");
+	  console.log(d3.select(this).node()); //.attr("d")
+      }); // un hexagone dessiné avec un path fermé
+    }
+  }
+}
+var svg;
+
+window.onload=function(){
+  console.log("window chargée");
+  var rayon=parseInt(getParam("rayon")); // int en pix
+  var nblig=parseInt(getParam("nblig")); // int
+  var nbcol=parseInt(getParam("nbcol")); // int
+  svg=d3.select("#damier").append("svg").attr("width", "100%" ).attr("height", "100%" ); 
+  var larg=parseInt(svg.style("width")); // int en px
+  console.log("rayon="+rayon+"; larg="+larg);
+  var hauteur=parseInt(svg.style("height")); // int en px
+
+  genereDamier(rayon,nblig,nbcol);
+}
+  
+  </script>
+</head>
+<body>
+  <div id="damier" />
+
+</body>
+</html>
+<!-- onload="javascript:console.log('toto');" -->

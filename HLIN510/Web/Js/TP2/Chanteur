@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <style>
+      body { font-size: 18; font-weight: bold; }
+      img { width: 80px; height: 80px;}
+      .horizontal { float: left; margin: 10px; list-style: none; }
+    </style>
+    <!-- <script src="jquery-3.1.1.min.js" type="text/javascript"></script> -->
+    <script src="jquery-3.1.1.js" type="text/javascript"></script>
+
+<script>
+  // Répertorie les listes déjà chargées
+  // en valeurs : 1 si la liste est affichée, 0 sinon
+  var listeChargees = {};
+
+  var generationHTML = function(entry) { // génére un li 
+  var html = "";
+  if (entry['image']) {
+    html += "<li class='horizontal'>"+entry['nom'];
+    html += "<img id='"+entry['lien']+"' src='IMAGES/"+entry['image']+
+      "' width=50 >";
+    html += "<ul id='liste_"+entry['lien']+"'></ul></li>";
+  } else {
+    html += "<li>"+entry['nom']+"</li>"; 
+    //console.log("Pas d'image!");
+  }
+  return html;
+  }
+
+  var ouvertureFermeture = function () {
+    console.log("ouvertureFermeture");
+    var id = $(this).attr('id');
+    // récupère le premier attribut de l'élément cliqué, soit l'id
+    console.log(id);
+    if (listeChargees.hasOwnProperty("#liste_"+id)) {
+      if (listeChargees["#liste_"+id] == 1) { 
+      // la liste est affichée, on la désaffiche
+        listeChargees["#liste_"+id] = 0;
+        $("#liste_"+id).hide();
+      } else {
+        listeChargees["#liste_"+id] = 1;
+        $("#liste_"+id).show();
+      }
+    } else {
+      $.getJSON('JSON/'+id+".json", function(data) { // http://jsonlint.com/
+        $.each(data, function(entryIndex, entry) {
+          var html = generationHTML(entry);
+          $("#liste_"+id).append(html);
+
+          $(document.body).on('click','#'+entry['lien'],ouvertureFermeture);
+          listeChargees["#liste_"+id] = 1;
+        });
+      });
+    }
+  };
+
+  $().ready(function() {  // sur chargement terminé
+    $("body").append("<ul id='listePrincipale' />"); // ajout de listeP
+    console.log("listePrincipale ajoutée");
+    $.getJSON('JSON/chanteurs.json', function(data) {
+      console.log("avant each");
+      $.each(data, function(entryIndex, entry) {
+        console.log(entry.nom);
+        var html = generationHTML(entry);
+        $("#listePrincipale").append(html); 
+        // ajoute les li de chanteurs
+        $(document.body).on('click', '#'+entry['lien'],ouvertureFermeture);
+        console.log("onClick !")
+        // appeler ouvFerm sur click pour l'élément sélectionné par id
+      });
+    });
+  });
+</script>
+</head>
+<body></body>
+</html>

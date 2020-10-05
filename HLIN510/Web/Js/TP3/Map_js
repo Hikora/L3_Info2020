@@ -1,0 +1,27 @@
+ Avant la division
+Dans la division
+NiElemNiAttribNiText-#document Enfants : 3
+___ NiElemNiAttribNiText-#comment " exploration du DOM " Enfants : 0
+___ NiElemNiAttribNiText-html Enfants : 0
+___ Element-HTML Enfants : 3
+___ ___ Element-HEAD Enfants : 7
+___ ___ ___ Text-#text " " Enfants : 0
+___ ___ ___ Element-META Enfants : 0
+___ ___ ___ Text-#text " " Enfants : 0
+___ ___ ___ Element-TITLE Enfants : 1
+___ ___ ___ ___ Text-#text "exploDOM de mmeynard" Enfants : 0
+___ ___ ___ Text-#text " " Enfants : 0
+___ ___ ___ Element-SCRIPT Enfants : 0
+___ ___ ___ Text-#text " " Enfants : 0
+___ ___ Text-#text " " Enfants : 0
+___ ___ Element-BODY Enfants : 6
+___ ___ ___ Text-#text " " Enfants : 0
+___ ___ ___ Element-H2 Enfants : 1
+___ ___ ___ ___ Text-#text " Avant la division " Enfants : 0
+___ ___ ___ Text-#text " " Enfants : 0
+___ ___ ___ Element-DIV Enfants : 3
+___ ___ ___ ___ Text-#text " " Enfants : 0
+___ ___ ___ ___ Element-H3 Enfants : 1
+___ ___ ___ ___ ___ Text-#text " Dans la division " Enfants : 0
+___ ___ ___ ___ Text-#text " " Enfants : 0
+___ ___ ___ Text-#text " " Enfants : 0

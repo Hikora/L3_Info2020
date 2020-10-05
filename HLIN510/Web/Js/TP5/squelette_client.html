@@ -1,0 +1,72 @@
+ <html>
+  <head>
+    <mete charset="UTF-8" />
+     
+    <title> Client web socket (ou presque) </title>
+    <style type="text/css"> td {padding: 20px; } </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script type="text/javascript">
+        // Le code de gestion du damier pourrait être inséré ici
+      
+        var socket;
+        var nbJoueursConnectes = 0;
+        var nomsJoueurs = [];
+        var joueurLocal = -1;      // indice dans nomsJoueurs
+        var couleursJoueurs = ['red', 'yellow', 'blue', 'green'];
+
+        function rejoindrePartie() {
+	   console.log("Dans rejoindrePartie");
+	
+        }
+
+	function quitterPartie() {
+	   console.log("Dans quitterPartie");	
+
+        }
+
+        socket = io('http://127.0.0.1:8888');
+        socket.emit("etat",{});  // Pour que le serveur renvoie les noms des joueurs déjà connectés
+
+        socket.on("etatPartie", function(data) {
+             console.log("Du serveur : réception d'état");
+
+        });
+
+        socket.on("nouveauJoueur", function(data) {
+             console.log("Du serveur : nouveau joueur "+data["nomJoueur"]);
+
+        });
+
+	socket.on("ancienJoueur", function(data) {
+             console.log("Du serveur : ancien joueur");
+	
+        });
+
+        socket.on("actionPartie", function(data) {
+             console.log("Du serveur : action d'un joueur");
+
+        });
+
+     </script>
+  </head>
+
+  <body onLoad="genereDamier(50,10,10)">  <!-- Vous avez pu initier la création du damier autrement -->
+     <div>
+        Rejoindre la partie <input type="text" name="joueur"> </input> <button onClick="rejoindrePartie()"> Hello </button>
+        <br/>
+        Quitter les vivants <button onClick="quitterPartie()"> Bye Bye </button><br/><br/>
+        <table>
+          <td> Joueur 1 : <label id="joueur0"> </label> </td>
+          <td> Joueur 2 : <label id="joueur1"> </label> </td>
+          <td> Joueur 3 : <label id="joueur2"> </label> </td>
+          <td> Joueur 4 : <label id="joueur3"> </label> </td>
+        </table>
+        <br/>
+     </div>
+     
+     <div id="damier">
+     </div>
+  </body>
+</html>

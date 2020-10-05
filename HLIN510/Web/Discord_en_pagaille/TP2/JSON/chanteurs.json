@@ -1,0 +1,23 @@
+[
+  {
+    "nom": "Christophe",
+    "prenom_reel": "Daniel",
+    "nom_reel": "Bevilacqua",
+    "image": "christophe.jpg",
+    "lien": "albums_Christophe"
+  },  
+  {
+    "nom": "Demis Roussos",
+    "prenom_reel": "Demis",
+    "nom_reel": "Roussos",
+    "image" : "roussos.jpg",
+    "lien": "albums_Roussos"
+  },
+  {
+      "nom": "Test Foobar",
+      "prenom_reel": "test",
+      "nom_reel": "foobar",
+      "image" : "foobar.svg",
+      "lien": "albums_foobar"
+  }
+]

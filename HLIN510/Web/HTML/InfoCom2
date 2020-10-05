@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" /> 
+
+<link rel="stylesheet" type="text/css" href="messtyles.css" />
+
+<title>INFOCOM matériel informatique</title>
+</head>
+<body>
+
+<header>
+<h1>INFOCOM vente de matériel informatique</h1>
+</header>
+
+<nav>
+  <a href="#dd" title="disque dur">Disques durs</a>
+  <a href="#clavier" title="claviers et souris">Claviers et souris</a>
+  <a href="#divers" title="divers">Divers</a>
+</nav>
+
+<section>
+<a name="dd">
+<h1>Les disques durs</h1>
+</a>
+<table>
+  <tr><th>Produit<th>Prix<th>Description
+  <tr><td>disque dur Seagate 500 Go<td>100€<td> taille 135x87x30, temps d'accès
+  moyen 12ms
+  <tr><td>disque dur Western 750 Go<td>120€<td> taille 155x88x32, temps d'accès
+  moyen 15ms
+  <tr><td>disque dur Externe 500 Go<td>115€<td> USB2, 2.5 pouces, taille
+  120x78x32, temps d'accès moyen 20ms
+</table>
+</section>
+
+<section>
+<a name="clavier">
+<h1>Les claviers et souris</h1>
+</a>
+<table>
+  <tr><th>Produit<th>Prix<th>Description
+  <tr><td>clavier logitech<td>10€<td>filaire USB2, contrôles multimedia
+  <tr><td>souris logitech<td>12€<td> optique, filaire USB2
+  <tr><td>clavier souris sans fil<td>35€<td> récepteur USB2
+</table>
+</section>
+
+<section>
+<a name="divers">
+<h1>Divers</h1>
+</a>
+<table>
+  <tr><th>Produit<th>Prix<th>Description
+  <tr><td>enceintes 5W<td>30€<td>filaire USB2
+  <tr><td>tapis souris<td>5€<td>
+</table>
+</section>
+
+<footer>
+<h1>INFOCOM le leader de la vente de matériel informatique</h1>
+<a href="cgv.html" title="Conditions Générales de Vente">CGV</a>
+</footer>
+
+</body>
+</html>
+
+
+h1 {
+    color: red;
+}
+* {
+    background-color: aquamarine;
+}
+
+nav {
+    font-variant: small-caps;
+    position: absolute;
+    width: 150px;
+    left: 10px;
+}
+nav a {
+    display: block;
+    margin-top: 30px;
+}
+section {
+    margin-left:150px;  
+}
+
+header {
+    border-bottom: solid 1px;
+    text-align: center;
+}
+footer {
+    border-top: solid 1px;
+    text-align: center;
+}

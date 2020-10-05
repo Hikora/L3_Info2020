@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" /> 
+
+<title>Bataille navale</title>
+
+<script language="javascript" type="text/javascript">
+var bateaux;			/* var globale non définie */
+var nbBateaux=4;
+var nbBoum=0;
+
+Array.prototype.in_array = function(p_val) {
+  for(var i = 0, l = this.length; i < l; i++) {
+    if(this[i] == p_val) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function initJeu(){
+  bateaux=new Array();		/* vide */
+  nbBoum=0;
+  while (bateaux.length < nbBateaux){
+    var b=Math.floor(Math.random()*25-0.001);
+    if (!bateaux.in_array(b))
+      bateaux.push(b);
+  }
+  for(i=0;i<5;i++){
+    for(j=0;j<5;j++){
+      var cible=document.getElementById(i+''+j);
+      cible.value='?';
+    }
+  }
+}
+function joue(id){ 
+  if(bateaux===undefined)	/* en début */
+    initJeu();
+  if (nbBoum==nbBateaux){
+    alert("Bravo, le jeu est fini !");
+    return;			/* jeu fini */
+  }
+  var cible=document.getElementById(id);
+  var num=parseInt(id.charAt(0))*5 + parseInt(id.charAt(1));
+  if (bateaux.in_array(num)){
+    if(cible.value!="BOUM" ){
+      cible.value="BOUM" ;
+      nbBoum++;
+    } else {
+      alert("Déjà joué !");
+    }
+  } else {
+    cible.value="~~~~";
+  }
+}
+</script>
+</head>
+<body>
+
+<h1>Bataille navale</h1>
+
+
+<table border="1">
+
+<tr> <th></th> <th>A</th> <th>B</th> <th>C</th> <th>D</th> <th>E</th></tr>
+
+<tr> <th>1</th> <td>
+<input id="00" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="01" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="02" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="03" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="04" type="button" value="?" onClick="joue(event.target.id)" />
+</td></tr>
+
+<tr><th>2</th><td>
+<input id="10" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="11" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="12" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="13" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="14" type="button" value="?" onClick="joue(event.target.id)" />
+</td></tr>
+
+<tr><th>3</th><td>
+<input id="20" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="21" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="22" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="23" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="24" type="button" value="?" onClick="joue(event.target.id)" />
+</td></tr>
+
+<tr><th>4</th><td>
+<input id="30" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="31" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="32" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="33" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="34" type="button" value="?" onClick="joue(event.target.id)" />
+</td></tr>
+
+<tr><th>5</th><td>
+<input id="40" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="41" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="42" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="43" type="button" value="?" onClick="joue(event.target.id)" />
+</td><td>
+<input id="44" type="button" value="?" onClick="joue(event.target.id)" />
+</td></tr>
+
+</table>
+<input id="init" type="button" value="Réinitialiser le jeu" onClick="initJeu()" />
+
+
+</body>
+</html>

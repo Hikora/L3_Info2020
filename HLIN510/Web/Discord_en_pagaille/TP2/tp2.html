@@ -1,0 +1,83 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+	body { 
+		font-size: 18px; 
+		font-weight: bold; 
+	}
+	img { 
+		width: 80px; 
+		height: 80px; 
+	}	
+	.horizontal { 
+		float: left; 
+		margin: 10px; 
+		list-style: none; 
+	}
+</style>
+<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+		// On repertorie dans un objet les listes déjà chargées
+		// en valeurs : 1 si la liste est affichée, 0 sinon
+		var listeChargees = {};
+
+		// Ajout dans le DOM des nouveaux éléments / noeuds texte
+		function generationHTML(objet){
+			var res = "<li ";
+			var lien;
+			if(!objet.lien)  lien = objet.MP3;
+			else lien = objet.lien;
+
+			if(objet.image){
+				res += "class='horizontal' id='" + lien + "'>" + objet['nom'] + "<img id='" + lien  + "' src='IMAGES/" + objet['image'] + "' onwheel='ouvertureFermeture(this)'/>";
+			}
+			else{
+				res += "><a href='MP3/" +  lien + "''>" + lien + "</a>";
+			}
+			res += "</li>"
+
+			return res;
+		}
+
+		function ouvertureFermeture(image){
+			var id = image.id;
+			console.log("this is my id : " + id);
+			if (listeChargees.hasOwnProperty("#liste_"+id)) {
+				if(event.deltaY < 0)
+					$("#liste_"+id).fadeOut();
+				else {
+					$("#liste_"+id).fadeIn();
+				}
+			}
+			else{ // la liste n'est pas encore chargée -> $.getJSON()
+				if(image.id){
+					$("#"+id).append("<ul id='liste_" + id + "' />");
+					$.getJSON("JSON/" + id + ".json",function(data) {
+						$.each(data, function(indice, objet) {
+							let html = generationHTML(objet);
+							$("#liste_"+id).append(html);
+						//$(document.body).on('click', '#'+objet.lien, ouvertureFermeture);
+						listeChargees["#liste_"+id] = 1;
+						
+					});
+					});
+				}
+			}
+		}
+
+		$().ready(function() {
+		//creation de la liste de plus haut niveau
+		$("body").append("<ul id='listePrincipale' />");
+		$.getJSON('JSON/chanteurs.json', function(data) {
+			$.each(data, function(indice, objet) {
+				let html = generationHTML(objet);
+				$("#listePrincipale").append(html);
+				//$(document.body).on('click', '#'+objet.lien, ouvertureFermeture);
+			});
+		});
+	});
+</script>
+</head>
+<body></body>
+</html>

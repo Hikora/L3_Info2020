@@ -1,0 +1,10 @@
+[
+{ "nom" : "restaurant1",
+  "lat" : 43.6114,
+  "long" : 3.85660
+},
+{ "nom" : "restaurant2",
+  "lat" : 43.605,
+  "long" : 3.88685
+}
+]

@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" /> 
+<title>Site de jeu : Mastermind avec cookie</title>
+</head>
+<body>
+<h1 align="center">Mastermind avec cookie</h1>
+
+<form action="/p00000010501/Archiweb/mastercookie.php" method="post">
+<table>
+ <tr>
+  <th align="left" valign="middle">Numéro</th>
+  <th align="left" valign="middle">Proposition</th>
+  <th align="left" valign="middle">Bien placé(s)</th>
+  <th align="left" valign="middle">Mal placé(s)</th>
+ </tr>
+<tr><td>1</td><td><input type='text' name='prop' size='4'</td><td></td><td></td></tr>
+    </table>
+    <input type="submit" value="OK">
+    <input type="submit" name="nouveau" value="Nouvelle Partie">
+    Nom de sauvegarde : <input type="text" name="nom" size="10">
+    <input type="submit" name="sauve" value="Sauver la partie en cours">
+    <input type="submit" name="restaure" value="Restaurer une partie sauvegardée">
+   </form>
+  </body>
+</html>

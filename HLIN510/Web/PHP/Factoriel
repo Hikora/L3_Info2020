@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" /> 
+<title>factorielle</title>
+</head>
+<body>
+  <h1>factorielle</h1>
+Saisir un entier !!!<form  method="get">
+<input type="number" name="n" size="10" pattern="\d+" required>
+<input type="submit" value="Calculer !">
+</form>
+</body>
+</html>

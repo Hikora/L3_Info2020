@@ -1,0 +1,12 @@
+[
+{ "nom" : "hotel1",
+  "lat" : 43.6192,
+  "long" : 3.87670,
+  "icon": "green"
+},
+{ "nom" : "hotel2",
+  "lat" : 43.62,
+  "long" : 3.87775,
+  "icon": "green"  
+}
+]

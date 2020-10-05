@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" /> 
+<title>Commande</title></head><body>
+<h1>Commande</h1>
+<form method="get">
+TOTAL : 0<br/>Article : 
+<select size="1" name="article">
+  <option>marteau</option><option>tenaille</option><option>vis</option><option>clou</option><option>tournevis</option><option>ciseau</option><option>toile émeri</option></select>
+ quantité voulue : <input type="number" name="quantite" size="10" 
+			  pattern="\d+" min="0"><br>
+<input type="submit" value="Ajouter !" name="ajouter">
+</form>
+</body></html>
