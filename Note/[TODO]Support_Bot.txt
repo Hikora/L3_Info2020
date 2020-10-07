@@ -1,0 +1,25 @@
+Avancement git :  [05/10] TODO LIST 
+
+ (Web):
+- Faire marcher doctrine via meynard site pour récup code php
+- Decoupe pdf TD/TP pour raccorder aux corrections de sujets 
+-Complementaire PHP/BDD à faire 
+
+(Langage Formel) :
+-Recup correction groupe A et mettre sur git 
+- Se debrouiller pour trouver la correction des TD/TP
+
+(Systeme):
+-Mettre CM3 sur git 
+- Complementaire au cours (theorie) et aux corrections des TD
+- Faire un tuto C pour le git
+(Java):
+-LUL
+ 
+(Algo):
+- Attaquer partie Algorithmie ( site internet + 2 fois livre + yt et si temps tuto )(1)
+- Faire la correction TD avec aide 
+- Ask TP + faire perso avec gk4gk et autre ( connexion avec 1 )
+
+(BDD):
+- config oracle pc fac + faire TP (LUL)
