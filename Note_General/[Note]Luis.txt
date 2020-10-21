@@ -1,5 +1,3 @@
-NOTE : controle SQL 4 novembre en amphi en 6.03 tous ensemble :D
-surement sur l'identité association. que du sql, pas de langage algé. documents autorisés !! arriver en avance car le contrôle commence a 15h pile. 
+NOTE : controle SQL 4 novembre en amphi en 6.03 
+surement sur l'identité association. que du sql, pas de langage algé + le tp 2 jusqu'à "mise à jour des données" <- non inclu (savoir faire des contraintes, des tables...). documents autorisés !! arriver en avance car le contrôle commence a 15h pile. 
 
-
-controle de java la semaine pro lundi idk when & where
